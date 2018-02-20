@@ -53,4 +53,15 @@ void main( unsigned long magic, unsigned long addr )
     }
 
     puts( "hello world, i guess?" );
+    addr = addr + 8;
+    struct multiboot_tag *tag = addr;
+    while (tag->type != 0) {
+      if (tag->type == 3) {
+          puts("module\n");
+      } else {
+          addr = addr + (tag->size);
+          addr = (addr + 7) & 
+          tag = addr;
+      }
+    }
 }
