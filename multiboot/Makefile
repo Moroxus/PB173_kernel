@@ -7,6 +7,7 @@ MKRESCUE = env PATH=$$PATH:$(GRUB) grub-mkrescue
 boot.img: a.out
 	mkdir -p _boot/boot/grub
 	cp a.out _boot
+	cp ahoj.txt _boot
 	cp grub.cfg _boot/boot/grub/
 	$(MKRESCUE) -o $@ _boot
 	rm -rf _boot

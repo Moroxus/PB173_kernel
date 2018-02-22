@@ -32,7 +32,7 @@
 /*  This should be in %eax. */
 #define MULTIBOOT2_BOOTLOADER_MAGIC             0x36d76289
 
-/*  Alignment of multiboot modules. */
+/*  Alignment of multiboots. */
 #define MULTIBOOT_MOD_ALIGN                     0x00001000
 
 /*  Alignment of the multiboot info structure. */

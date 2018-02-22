@@ -53,15 +53,26 @@ void main( unsigned long magic, unsigned long addr )
     }
 
     puts( "hello world, i guess?" );
+
     addr = addr + 8;
+	unsigned long tmp;
+	char * ch;
     struct multiboot_tag *tag = addr;
+	struct multiboot_tag_module *md;
     while (tag->type != 0) {
-      if (tag->type == 3) {
-          puts("module\n");
-      } else {
-          addr = addr + (tag->size);
-          addr = (addr + 7) & 
-          tag = addr;
+    	if (tag->type == 3) { // TODO change magic constant for macro 
+			md = tag;			
+			puts(md->cmdline);
+			tmp = md->mod_start;
+			ch = tmp;
+			while (ch != md->mod_end){
+				putchar(*ch);
+				++ch;			
+			}
       }
+      addr = addr + (tag->size);
+      addr = (addr + 7) & (~7);
+      tag = addr;
+      
     }
 }
