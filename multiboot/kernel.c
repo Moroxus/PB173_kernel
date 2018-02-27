@@ -65,8 +65,7 @@ void main( unsigned long magic, unsigned long addr )
 			          ++byte;
           }
       }
-      addr = addr + (tag->size);
-      addr = (addr + 7) & (~7);
+      addr = (addr + (tag->size) + 7) & (~7);
       tag = addr;
     }
 }
