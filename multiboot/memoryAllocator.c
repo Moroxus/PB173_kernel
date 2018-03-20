@@ -114,13 +114,14 @@ void *malloc(unsigned int size) {
   unsigned int dataStart = chunk->start;
   unsigned int dataEnd = chunk->start + sizeToAllocate - 1;
   if (!(chunk->end - dataEnd > sizeof(struct FreeChunk))) {
+    dataEnd = chunk->end;
     removeChunkFromList(chunk);
   } else {
     chunk->start = dataEnd + 1;
     moveChunk(chunk);
   }
   unsigned int *meta = (unsigned int*)dataStart;
-  *meta = sizeToAllocate;
+  *meta = dataEnd - dataStart + 1;
   return (void *)(meta + 1);
 }
 
