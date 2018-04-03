@@ -2,5 +2,7 @@
 
 To compile and run:
 
+```
 cd multiboot/
 make test
+```
