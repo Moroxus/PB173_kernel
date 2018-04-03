@@ -25,7 +25,7 @@ multiboot_header_end:
 
 multiboot_entry:
         movl    $(stack + STACK_SIZE), %esp /* stack pointer */
-        pushl   $0                          
+        pushl   $0
         popf                                /* reset EFLAGS */
 
         pushl   %ebx /* multiboot information structure */
@@ -33,7 +33,7 @@ multiboot_entry:
         call    main /* let's C */
 
         pushl   $halt_message
-        call    puts
+        call    vga_puts
         hlt
 
 halt_message:

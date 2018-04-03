@@ -7,9 +7,9 @@ extern volatile unsigned char *video;
 
 void clear(void);
 
-void putchar(int c);
+void vga_putchar(int c);
 
-void puts(const char *str);
+void vga_puts(const char *str);
 
 void putDecimalDigit(unsigned int digit);
 

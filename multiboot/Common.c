@@ -7,7 +7,7 @@ void clear(void) {
     video[i] = 0;
 }
 
-void putchar(int c) {
+void vga_putchar(int c) {
   const int columns = 80;
   const int lines = 24;
   static int x = 0, y = 0;
@@ -28,33 +28,33 @@ void putchar(int c) {
   ++x;
 }
 
-void puts(const char *str) {
+void vga_puts(const char *str) {
   do
-    putchar(*str);
+    vga_putchar(*str);
   while (*str++);
-  putchar('\n');
+  vga_putchar('\n');
 }
 
 
 void putDecimalDigit(unsigned int digit) {
   switch (digit) {
-    case 0: putchar('0'); break;
-    case 1: putchar('1'); break;
-    case 2: putchar('2'); break;
-    case 3: putchar('3'); break;
-    case 4: putchar('4'); break;
-    case 5: putchar('5'); break;
-    case 6: putchar('6'); break;
-    case 7: putchar('7'); break;
-    case 8: putchar('8'); break;
-    case 9: putchar('9'); break;
-    default: putchar('e');
+    case 0: vga_putchar('0'); break;
+    case 1: vga_putchar('1'); break;
+    case 2: vga_putchar('2'); break;
+    case 3: vga_putchar('3'); break;
+    case 4: vga_putchar('4'); break;
+    case 5: vga_putchar('5'); break;
+    case 6: vga_putchar('6'); break;
+    case 7: vga_putchar('7'); break;
+    case 8: vga_putchar('8'); break;
+    case 9: vga_putchar('9'); break;
+    default: vga_putchar('e');
   }
 }
 
 void putDecimalNumber(int number) {
   if (number < 0) {
-    putchar('-');
+    vga_putchar('-');
     number = -number;
   }
   int counter = 1;
