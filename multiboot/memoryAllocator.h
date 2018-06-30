@@ -25,10 +25,4 @@ void tryMergeChunk(struct FreeChunk *chunk);
 
 void insertChunkIntoList(struct FreeChunk* chunk);
 
-void *malloc(unsigned int size);
-
-void free(void *ptr);
-
-void *realloc(void *ptr, unsigned int new_size);
-
 #endif // MEMORY_ALLOCATOR

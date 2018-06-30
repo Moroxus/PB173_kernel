@@ -95,7 +95,7 @@ void insertChunkIntoList(struct FreeChunk* chunk) {
   tryMergeChunk(chunk);
 }
 
-void *malloc(unsigned int size) {
+void *malloc(size_t size) {
   unsigned int sizeToAllocate = max(size + 4, sizeof(struct FreeChunk));
   struct FreeChunk *chunk = freeZones.first;
   while (chunk != NULL && chunk->end - chunk->start + 1 < sizeToAllocate) {
@@ -141,7 +141,7 @@ void free(void *ptr) {
   }
 }
 
-void *realloc(void *ptr, unsigned int new_size) {
+void *realloc(void *ptr, size_t new_size) {
   unsigned int* ptrToSize = ptr;
   ptrToSize--;
   void *new_ptr = malloc(new_size);
