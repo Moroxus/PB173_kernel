@@ -15,7 +15,7 @@ project(pdclib C)
 
 # platform-specific includes and sources
 SET(CMAKE_C_COMPILER gcc)
-set(CMAKE_C_FLAGS "-std=c99")
+set(CMAKE_C_FLAGS "-std=c99 -g")
 set(CMAKE_EXE_LINKER_FLAGS "-static-libgcc -lgcc")
 
 include_directories(SYSTEM platform/example/includes platform/example/internals)

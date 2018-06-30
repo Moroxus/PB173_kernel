@@ -1,0 +1,22 @@
+ENTRY(_start);
+_start = 0x01400000;
+
+SECTIONS
+{
+    /* Start loading code from the third page (arbitrary choice) */
+    . = 0x01400000;
+    .text ALIGN(4K) :
+    {
+        *(.text*)
+    }
+
+    /* Start loading data from this addres (arbitrary choice) */
+    . = 0x0140A000;
+    .data ALIGN(4K) :
+    {
+        *(.rodata*)
+        *(.data*)
+        *(COMMON)
+        *(.bss*)
+    }
+}
